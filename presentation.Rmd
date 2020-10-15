@@ -1,0 +1,194 @@
+---
+title: "R Shiny"
+subtitle: "Un package de l'écosytème du langage R"
+author: "Camille Bonamy"
+institute: "Next Decision"
+date: "2020/10/10 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      countdown: 60000
+---
+
+class: inverse, center, middle
+
+# Présentation
+
+---
+
+### Historique
+
+Shiny est un package R open [source](https://github.com/rstudio/shiny) sous licence GPL3 (liberté d'utiliser gratuitement, étudier, partager, et modifier le logiciel) publié en 2012 (pour la version `0.1.2`).
+
+Cet outil est le fruit de plusieurs auteurs : Winston Chang [aut, cre], Joe Cheng [aut], JJ Allaire [aut], Yihui Xie [aut], Jonathan McPherson [aut] et d'un certain nombre d'autres contributeurs ([liste complète](https://cran.r-project.org/web/packages/shiny/index.html)).
+
+--
+
+### Description
+
+D'un point de vue **fonctionnel** : shiny permet de créer des applications Web.
+En **pratique**, cet outil génère et interprète du contenu web (HTML, CSS et JS)
+
+---
+
+### Utilisation
+
+Les applications crées s'interfacent avec :
+
+  * l'ensemble des autres packages R pour
+  
+    * se connecter à des bases de données (via DBI, odbc, ...)
+    
+    * générer des visualisations (graphes, cartes, ...)
+    
+    * exécuter des traitements statistiques ou des algorithmes de Machine Learning
+    
+    * des scripts Python (via le package `reticulate`), des API ...
+    
+  * d'autres contenus web (CSS, JS, API)
+
+---
+
+class: inverse, center, middle
+
+# Cas d'usages
+
+---
+
+### Suivi des status de maintenance
+
+**Besoin** : les machines d'une chaîne de production sont programmées pour s'arrêter au bout d'un certain nombre d'utilisations pour effectuer une maintenance. 
+
+Les commandes variées font que les machines utilisées sont rarement les mêmes entraînant des arrêts non anticipé de la chaîne.
+
+**Livrable** : une application shiny (basée sur une librairie JS) avec un calendrier interactif de l'utilisation des équipements et des maintenances.
+
+--
+
+### Traitement du signal
+
+**Besoin** : le pôle R&D a besoin d'un outil de suivi des experimentations permettant de filtrer le bruit dans les signaux.
+
+**Livrable** : un applicatif permet de sélectionner les experimentations et d'afficher le signal filtré (par d'autre fonctionnalitées sous R).
+
+---
+ 
+### Recherche de niches commerciales
+
+**Besoin** : l'outil Excel utilisé par le marketing ne permet plus d'analyser et de visualiser les données.
+
+**Livrable** : une application pour filtrer par produits, concurents, lieux et afficher les dimensions pertinentes ou les secteurs pertinents.
+
+--
+
+### Etude et recommendation de prix
+
+**Besoin** : les commerciaux connaissent leur marché en terme de produit et de secteur géographique. Il n'y a cependant pas d'outil centralisant les prix pratiqués à l'échelle mondiale.
+
+**Livrable** : consolidation des données (à partir d'Excel et de Sharepoint), app permettant de filtrer les données. Pour la réponse à un appel d'offre : affichage de l'historique et recommendation de prix (modèle entraîné sous R). 
+
+---
+
+class: inverse, center, middle
+
+# Les bénéfices de l'open source
+
+---
+
+### Customiser ses apps avec les autres ressources web
+
+Il est également possible d'utiliser directement des scripts ou functions JS et de customiser son app avec du CSS (l'UI par défaut est basé sur le thème Bootstrap).
+
+--
+
+### Exemples
+
+Un grand nombre d'exemples sont disponibles en : https://shiny.rstudio.com/gallery/. Il existe plusieurs type d'applications :
+
+  * [dashboard](https://gallery.shinyapps.io/nz-trade-dash/)
+  
+  * [flexboard](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-ggplotly-geoms/htmlwidgets-ggplotly-geoms.html#geom_point)
+  
+  * carte interactive
+  
+  * rapport interactif (cf demoshinymd.Rmd)
+
+  * plus d'exemples avec le [shiny contest](https://blog.rstudio.com/2020/07/13/winners-of-the-2nd-shiny-contest/)
+
+---
+
+### Comment créer une application Shiny
+
+Plusieurs packages extendent **Shiny** et facilitent la création et la mise en production d'applications :
+  
+  * les thèmes : shinydashboard, ...
+    
+  * les outils pour organiser le code : package [golem](https://thinkr-open.github.io/golem/), Gitlab (version et dockerisation en CI/CD)
+
+Concernant les modes de déploiements, plusieurs options sont possibles selon les choix d'architecture :
+  
+  * **Cloud** avec shinyapps.io
+    
+  * **Cloud ou local** avec docker + server avec proxy, shiny server, ou/et un autre fournisseur
+    
+  * **Local** avec R (et `renv`), Docker ou Electron
+  
+---
+
+class: inverse, center, middle
+
+# Coûts
+
+---
+
+### Combien ça coûte R Shiny ?
+
+  * création ou évolution : les jours de developpements
+  
+  * maintenance : coût d'un server ou d'un service cloud
+  
+  * licence : 0
+  
+  
+### Les produits pro de RStudio
+
+RStudio [PBC](https://blog.rstudio.com/2020/01/29/rstudio-pbc/) (Public Benefit Corporation) est une entreprise qui créé des ressources libres (54% de la force des ingénieurs logiciels à temps plein) et fournit également des services payants : `RStudio Professional IDE`, `RStudio Connect` et `RStudio Package Manager.
+
+Ces services sont disponible selon 2 options
+
+  * A l'unité : https://rstudio.com/pricing/
+  
+  * L'ensemble : https://rstudio.com/pricing/team/
+  
+---
+
+class: inverse, center, middle
+
+# Ce qu'il faut retenir
+
+---
+
+Shiny complète la gamme de livrable réalisable avec R :
+
+* création ou alimentation de bases de données (ou de fichiers plats)
+
+* rapport ou étude ( statique : pdf, excel, ppt ; dynamique : html paramétrable avec envoi par email )
+
+* **applications web** et **rapport dynamique**
+
+* API (pour exécuter un traitement R, requêter un modèle, ...)
+
+
+Les applications créées sont déployables selon plusieurs modes (local, cloud) tels que des développements s'appuiyant sur des technologies open source (docker, shiny proxy, ...) ou des solutions payantes (RStudio Connect, services hébergés).
+
+---
+
+class: inverse, center, middle
+
+# Merci ! Q & R
+
+Présentation créée avec le package R [**xaringan**](https://github.com/yihui/xaringan)

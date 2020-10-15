@@ -1,0 +1,10 @@
+name: diamond_demo
+title: Diamond demo
+username:
+account: nextdecision
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3021489
+bundleId: 3744451
+url: https://nextdecision.shinyapps.io/diamond_demo/
+when: 1602756359.37651
